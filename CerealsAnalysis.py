@@ -34,8 +34,8 @@ np_cerealsFat = np.array(cerealsFat)
 
 # read cereals sodium from the dataset
 cerealsSodium = data.sodium.tolist()
-# storing the list of cereals sodium content in 'np_cerealsSodium' numpy aarray
-np_cerealsSodium = np.array(cerealsSodium)
+# storing the list of cereals sodium content in 'np_cerealsSodium_mg' numpy aarray because it vslue is in milligrams
+np_cerealsSodium_mg = np.array(cerealsSodium)
 
 # read cereals fibre from the dataset
 cerealsFibre = data.fibre.tolist()
@@ -132,3 +132,37 @@ print(fmt.format('Sr.No', 'Cereal', '% Calories from Carbohydrates'))
 # Using for loop to iterate over the list of cereals names and their corresponding % calories from carbohydrates per serving calculated.
 for i, (cerealName, perCaloriesFromCarbo) in enumerate(zip(np_cerealsTitle, percentageCaloriesFromCarbo)):
     print(fmt.format(i, cerealName, perCaloriesFromCarbo))
+
+
+# Metric 5 - % Calories from sugar
+# Calculate sugar in calories per gram
+np_cerealsSugar_cal = np_cerealsSugar * 4
+# We have total calories per serving in 'totalCaloriesPerServing'
+percentageCaloriesFromSugar = np_cerealsSugar_cal/totalCaloriesPerServing * 100
+
+# formating lists of string and vlues to print in tabular format
+fmt = '{:<8}  {:<40}{}'
+
+# Column names
+print(fmt.format('Sr.No', 'Cereal', '% Calories from Sugar'))
+# Using for loop to iterate over the list of cereals names and their corresponding % calories from carbohydrates per serving calculated.
+for i, (cerealName, perCaloriesFromSugar) in enumerate(zip(np_cerealsTitle, percentageCaloriesFromSugar)):
+    print(fmt.format(i, cerealName, perCaloriesFromSugar))
+
+
+# Metric 6 - sodium/potassium ratio of <1 is protective
+# We have sodium in milligrams in 'np_cerealsSodium_mg'
+
+# Converting Potassium from grams to miligrams
+np_cerealsPotassium_mg = np_cerealsPotassium * 1000
+# Calculating sodium/potassium ratio
+sodiumPotassiumRatio = np_cerealsSodium_mg/np_cerealsPotassium_mg
+
+# formating lists of string and vlues to print in tabular format
+fmt = '{:<8}{:<40}{:<20}{}'
+
+# Column names
+print(fmt.format('Sr.No', 'Cereal', 'Na/K Ratio','Ratio of <1 is Protective'))
+# Using for loop to iterate over the list of cereals names and their corresponding % calories from carbohydrates per serving calculated.
+for i, (cerealName, Na_K_Ratio , protectiveOrNot) in enumerate(zip(np_cerealsTitle, sodiumPotassiumRatio, )):
+    print(fmt.format(i, cerealName, Na_K_Ratio, protectiveOrNot))
