@@ -131,6 +131,7 @@ print('\n')
 print('Metric 6           : Sodium/Potassium (Na/K) ratio in one portion <1 is protective')
 print('Formula            : Sodium(in mg)/ Potassium(in mg)')
 print('\n')
+print('Reference          : http://www.dining.ucla.edu/housing_site/dining/SNAC_pdf/CaloriesCount.pdf')
 print('Reference          : http://www.medscape.com/viewarticle/746133')
 print('Reference document : https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwi1is_Kk7HUAhWBcz4KHTZ4DgkQFggqMAE&url=http%3A%2F%2Fwww2.bakersfieldcollege.edu%2Flcarter%2FAssignments%2FSample%2520Food%2520Label%2520Calculations.doc&usg=AFQjCNFkBZwgyobarHrempezQD2-zs4y4A&sig2=y3GVaFN8VKhrcHnhgwi1Lg')
 # We have sodium in milligrams in 'np_cerealsSodium_mg'
