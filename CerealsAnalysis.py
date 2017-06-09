@@ -10,7 +10,7 @@ colnames = ['cereals', 'mfr', 'calories', 'protein', 'fat', 'sodium', 'fibre', '
 # reading the specific columns given in 'colnames' list from the csv file using pandas
 data = pd.read_csv('USCereals.csv', usecols=colnames)
 # printing all data in structured format
-print(data)
+#print(data)
 
 # read cereals names from the dataset
 cerealsTitle = data.cereals.tolist()
@@ -79,85 +79,96 @@ np_cerealsCarbo_cal = np_cerealsCarbo * 4
 totalCaloriesPerServing = np_cerealsFat_cal + np_cerealsProtein_cal + np_cerealsCarbo_cal
 
 # formating lists of string and vlues to print in tabular format
-fmt = '{:<8}  {:<40}{}'
+fmt = '{:<10}{:<1}{:<40}{:<1}{:<25}{:<1}'
 
 # goto new line
 print('\n\n')
+print('Metric 1           : Total calories per serving calculated using carbohydrates,fats,proteins')
+print('According to Science')
+print('Fat                : 1 gram = 9 Calories')
+print('Protein            : 1 gram = 4 Calories')
+print('Carbohydrates      : 1 gram = 4 Calories')
+print('Formula            : Total Calories Per Serving = Fats(in calories) + Proteins(in calories) + Carbohydrates(in calories)')
+print('Reference document : https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwi1is_Kk7HUAhWBcz4KHTZ4DgkQFggqMAE&url=http%3A%2F%2Fwww2.bakersfieldcollege.edu%2Flcarter%2FAssignments%2FSample%2520Food%2520Label%2520Calculations.doc&usg=AFQjCNFkBZwgyobarHrempezQD2-zs4y4A&sig2=y3GVaFN8VKhrcHnhgwi1Lg')
+print('The following table shows the "Total Calories per Serving" calculated using carbohydrates,proteins and fats.')
+print('\n')
 # Column names
-print(fmt.format('Sr.No', 'Cereal', 'Total Calories Per Serving'))
+print(fmt.format('----------','|','----------------------------------------','|','--------------------------','|'))
+print(fmt.format('Serial.No','|',' Cereal Name','|','Total Calories Per Serving','|'))
+print(fmt.format('----------','|','----------------------------------------','|','--------------------------','|'))
 # Using 'forloop' to iterate over the list of cereals names and their corresponding total calories per serving
 # calculated using fat,carbo and proteins.
 for i, (cerealName, totalCalories) in enumerate(zip(np_cerealsTitle, totalCaloriesPerServing)):
-    print(fmt.format(i, cerealName, totalCalories))
+    print(fmt.format(i, '|', ' '+ cerealName, '|', totalCalories, ' |'))
+    print(fmt.format('----------', '|', '----------------------------------------', '|', '--------------------------',
+                     '|'))
 
 # Metric 2 - % Calories from fat
 # We have fat calculated in calories per gram in 'np_cerealsFat_cal'
 # We have total calories per serving in 'totalCaloriesPerServing'
 percentageCaloriesFromFat = np_cerealsFat_cal / totalCaloriesPerServing * 100
-
-# formating lists of string and values to print in tabular format
-fmt = '{:<8}  {:<40}{}'
-
-# goto new line
-print('\n\n')
+print('\n')
 # Column names
-print(fmt.format('Sr.No', 'Cereal', '% Calories from Fat'))
-# Using 'forloop' to iterate over the list of cereals names and their corresponding % calories from fat per serving
+print(fmt.format('----------','|','----------------------------------------','|','--------------------------','|'))
+print(fmt.format('Serial.No','|',' Cereal Name','|','% Calories from Fat',' |'))
+print(fmt.format('----------','|','----------------------------------------','|','--------------------------','|'))
+# Using 'forloop' to iterate over the list of cereals names and their corresponding total calories per serving
 # calculated using fat,carbo and proteins.
 for i, (cerealName, perCaloriesFromFat) in enumerate(zip(np_cerealsTitle, percentageCaloriesFromFat)):
-    print(fmt.format(i, cerealName, perCaloriesFromFat))
+    print(fmt.format(i, '|', ' '+ cerealName, '|', perCaloriesFromFat, ' |'))
+    print(fmt.format('----------', '|', '----------------------------------------', '|', '--------------------------',
+                     '|'))
 
 # Metric 3 - % Calories from protein
 # We have proteins calculated in calories per gram in 'np_cerealsProtein_cal'
 # We have total calories per serving in 'totalCaloriesPerServing'
 percentageCaloriesFromProtein = np_cerealsProtein_cal / totalCaloriesPerServing * 100
-
-# formating lists of string and values to print in tabular format
-fmt = '{:<8}  {:<40}{}'
-
-# goto new line
-print('\n\n')
+print('\n')
 # Column names
-print(fmt.format('Sr.No', 'Cereal', '% Calories from Protein'))
-# Using 'forloop' to iterate over the list of cereals names and their corresponding % calories from protein per serving
+print(fmt.format('----------','|','----------------------------------------','|','--------------------------','|'))
+print(fmt.format('Serial.No','|',' Cereal Name','|','% Calories from Protein',' |'))
+print(fmt.format('----------','|','----------------------------------------','|','--------------------------','|'))
+# Using 'forloop' to iterate over the list of cereals names and their corresponding total calories per serving
 # calculated using fat,carbo and proteins.
 for i, (cerealName, perCaloriesFromProtein) in enumerate(zip(np_cerealsTitle, percentageCaloriesFromProtein)):
-    print(fmt.format(i, cerealName, perCaloriesFromProtein))
+    print(fmt.format(i, '|', ' '+ cerealName, '|', perCaloriesFromProtein, ' |'))
+    print(fmt.format('----------', '|', '----------------------------------------', '|', '--------------------------',
+                     '|'))
 
 # Metric 4 - % Calories from carbo
 # We have carbohydrates calculated in calories per gram in 'np_cerealsCarbo_cal'
 # We have total calories per serving in 'totalCaloriesPerServing'
 percentageCaloriesFromCarbo = np_cerealsCarbo_cal / totalCaloriesPerServing * 100
-
-# formating lists of string and values to print in tabular format
-fmt = '{:<8}  {:<40}{}'
-
-# goto new line
-print('\n\n')
+print('\n')
 # Column names
-print(fmt.format('Sr.No', 'Cereal', '% Calories from Carbohydrates'))
-# Using 'forloop' to iterate over the list of cereals names and their corresponding % calories from carbohydrates per
-# serving calculated using fat,carbo and proteins.
+print(fmt.format('----------','|','----------------------------------------','|','------------------------------','|'))
+print(fmt.format('Serial.No','|',' Cereal Name','|','% Calories from Carbohydrates',' |'))
+print(fmt.format('----------','|','----------------------------------------','|','------------------------------','|'))
+# Using 'forloop' to iterate over the list of cereals names and their corresponding total calories per serving
+# calculated using fat,carbo and proteins.
 for i, (cerealName, perCaloriesFromCarbo) in enumerate(zip(np_cerealsTitle, percentageCaloriesFromCarbo)):
-    print(fmt.format(i, cerealName, perCaloriesFromCarbo))
+    print(fmt.format(i, '|', ' '+ cerealName, '|', perCaloriesFromCarbo, '     |'))
+    print(fmt.format('----------', '|', '----------------------------------------', '|', '------------------------------',
+                     '|'))
+
 
 # Metric 5 - % Calories from sugar
 # Calculate sugar in calories per gram
 np_cerealsSugar_cal = np_cerealsSugar * 4
 # We have total calories per serving in 'totalCaloriesPerServing'
 percentageCaloriesFromSugar = np_cerealsSugar_cal / totalCaloriesPerServing * 100
-
-# formating lists of string and values to print in tabular format
-fmt = '{:<8}  {:<40}{}'
-
-# goto new line
-print('\n\n')
+print('\n')
 # Column names
-print(fmt.format('Sr.No', 'Cereal', '% Calories from Sugar'))
-# Using 'forloop' to iterate over the list of cereals names and their corresponding % calories from sugar per serving
+print(fmt.format('----------','|','----------------------------------------','|','--------------------------','|'))
+print(fmt.format('Serial.No','|',' Cereal Name','|','% Calories from Sugar',' |'))
+print(fmt.format('----------','|','----------------------------------------','|','--------------------------','|'))
+# Using 'forloop' to iterate over the list of cereals names and their corresponding total calories per serving
 # calculated using fat,carbo and proteins.
 for i, (cerealName, perCaloriesFromSugar) in enumerate(zip(np_cerealsTitle, percentageCaloriesFromSugar)):
-    print(fmt.format(i, cerealName, perCaloriesFromSugar))
+    print(fmt.format(i, '|', ' '+ cerealName, '|', perCaloriesFromSugar, ' |'))
+    print(fmt.format('----------', '|', '----------------------------------------', '|', '--------------------------',
+                     '|'))
+
 
 # Metric 6 - sodium/potassium ratio of Na/K <1 is protective
 # We have sodium in milligrams in 'np_cerealsSodium_mg'
@@ -168,17 +179,19 @@ np_cerealsPotassium_mg = np_cerealsPotassium * 1000
 sodiumPotassiumRatio = np_cerealsSodium_mg / np_cerealsPotassium_mg
 
 # formating lists of string and vlues to print in tabular format
-fmt = '{:<8}  {:<40}{:<30}{}'
+fmt = '{:<10}{:<1}{:<40}{:<1}{:<25}{:<1}{:<30}{:<1}'
 
 # Check if the values of ratio are <1 or >1 and store the list in 'protectiveOrNot'.
 # If value is <1 then add value 'yes' to arraylist , if >1 then add 'no'
 protectiveOrNot = ['yes' if float(x) < 1 else 'no' for x in sodiumPotassiumRatio]
-
-# goto new line
-print('\n\n')
+print('\n')
 # Column names
-print(fmt.format('Sr.No', 'Cereal', 'Na/K Ratio', 'Ratio of Na/K <1 is Protective'))
-# Using for loop to iterate over the list of cereals names, there corresponding Na/K ratio per serving  and it is protective or not.
-for i, (cerealName, Na_K_Ratio, protectiveOrNot) in enumerate(
-        zip(np_cerealsTitle, sodiumPotassiumRatio, protectiveOrNot)):
-    print(fmt.format(i, cerealName, Na_K_Ratio, protectiveOrNot))
+print(fmt.format('----------','|','----------------------------------------','|','-------------------------','|','-------------------------------','|'))
+print(fmt.format('Serial.No','|',' Cereal Name','|',' Na/K Ratio','|',' Ratio of Na/K <1 is Protective','|'))
+print(fmt.format('----------','|','----------------------------------------','|','-------------------------','|','-------------------------------','|'))
+# Using 'forloop' to iterate over the list of cereals names and their corresponding total calories per serving
+# calculated using fat,carbo and proteins.
+for i, (cerealName, Na_K_Ratio,protectiveOrNot) in enumerate(zip(np_cerealsTitle, sodiumPotassiumRatio,protectiveOrNot)):
+    print(fmt.format(i, '|', ' '+ cerealName, '|', Na_K_Ratio, '|',' ' + protectiveOrNot,' |'))
+    print(fmt.format('----------', '|', '----------------------------------------', '|', '-------------------------',
+                     '|','-------------------------------','|'))
