@@ -75,7 +75,7 @@ fmt = '{:<3}{:<1}{:<40}{:<1}{:<25}{:<1}{:<20}{:<1}{:<24}{:<1}{:<30}{:<1}{:<22}{:
 # goto new line
 print('\n\n')
 
-print('Metric 1           : Total calories per portion calculated using carbohydrates,fats,proteins in one portion')
+print('Metric 1           : Total calories per portion calculated using carbohydrates,fats,proteins in one portion.')
 print('According to Science')
 print('Fat                : 1 gram = 9 Calories')
 print('Protein            : 1 gram = 4 Calories')
